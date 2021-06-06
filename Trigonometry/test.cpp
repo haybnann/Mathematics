@@ -34,17 +34,15 @@ TEST(Trig, SINE) {
 TEST(Trig, COSINE) {
 	
 	float error = 0.02;
-	float calc_error = 0.0f;
 	float delta = 0.01;
-	float std_cosine = 0;
-	float test_cosine= 0;
-
+	float std_cos = 0;
+	float test_cos = 0;
 	float measured_error = 0;
 
 	for (float angle = 0.001; angle <= 5*PI; angle += delta) {
-		std_cosine = cos(angle);
-		test_cosine = Cosine(angle);
-		measured_error = abs((test_cosine - std_cosine) / std_cosine);
+		std_cos = cos(angle);
+		test_cos= Cosine(angle);
+		measured_error = abs((test_cos  - std_cos) / std_cos);
 
 		EXPECT_TRUE(measured_error < error);
 		//printf("Cosine of: %.7f \n", angle);
@@ -57,17 +55,15 @@ TEST(Trig, COSINE) {
 TEST(Trig, TANGENT) {
 
 	float error = 0.02;
-	float calc_error = 0.0f;
 	float delta = 0.01;
-	float std_cosine = 0;
-	float test_cosine = 0;
-
+	float std_tan = 0;
+	float test_tan = 0;
 	float measured_error = 0;
 
 	for (float angle = 0.001; angle <= 5 * PI; angle += delta) {
-		std_cosine = tan(angle);
-		test_cosine = Tangent(angle);
-		measured_error = abs((test_cosine - std_cosine) / std_cosine);
+		std_tan = tan(angle);
+		test_tan = Tangent(angle);
+		measured_error = abs((test_tan - std_tan) / std_tan);
 
 		EXPECT_TRUE(measured_error < error);
 		//printf("Tangent of: %.7f \n", angle);
